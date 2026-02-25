@@ -1,21 +1,22 @@
-import java.util.LinkedList;
+import java.util.Deque;
+import java.util.ArrayDeque;
 
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        String input = "level";
+        String input = "refer";
 
-        LinkedList<Character> list = new LinkedList<>();
+        Deque<Character> deque = new ArrayDeque<>();
 
         for (char c : input.toCharArray()) {
-            list.add(c);
+            deque.add(c);
         }
 
         boolean isPalindrome = true;
 
-        while (list.size() > 1) {
-            if (!list.removeFirst().equals(list.removeLast())) {
+        while (deque.size() > 1) {
+            if (deque.removeFirst() != deque.removeLast()) {
                 isPalindrome = false;
                 break;
             }
