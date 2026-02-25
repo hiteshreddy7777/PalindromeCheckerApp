@@ -1,27 +1,26 @@
+import java.util.Stack;
+
 public class PalindromeCheckerApp {
-public static void main(String[] args){
 
-    String word = "radar";
-    char[] characters = word.toCharArray();
+    public static void main(String[] args){
 
-    int start = 0;
-    int end = characters.length - 1;
-    boolean isPalindrome = true;
+        String word = "madam";
+        Stack<Character> stack = new Stack<>();
 
-    while (start < end) {
-        if (characters[start] != characters[end]) {
-            isPalindrome = false;
-            break;
+        for (int i = 0; i < word.length(); i++) {
+            stack.push(word.charAt(i));
         }
-        start++;
-        end--;
-    }
 
-    if (isPalindrome) {
-        System.out.println("The word \"" + word + "\" is a Palindrome.");
-    } else {
-        System.out.println("The word \"" + word + "\" is NOT a Palindrome.");
+        String reversed = "";
+
+        while (!stack.isEmpty()) {
+            reversed = reversed + stack.pop();
+        }
+
+        if (word.equals(reversed)) {
+            System.out.println("The word \"" + word + "\" is a Palindrome.");
+        } else {
+            System.out.println("The word \"" + word + "\" is NOT a Palindrome.");
+        }
     }
 }
-}
-
